@@ -1,0 +1,79 @@
+html {
+  height: 100%;
+  background-color: #b7c4cf;
+}
+.text-bg {
+  text-align: left;
+  color: black;
+  font-size: 90px;
+  line-height: 120px;
+  font-weight: bold;
+}
+
+.cont {
+  text-align: center;
+  color: #0e0d0d;
+  font-size: 45px;
+  line-height: 66px;
+  font-weight: 600;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.sub_btn {
+  cursor: pointer;
+  font-size: 17px;
+  transition: ease-in all 0.5s;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  display: block;
+  font-weight: 500;
+  border-radius: 35px;
+  border: #fff solid 4px;
+  padding: 13px 0px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.sub_btn:hover {
+  background-color: #eda911;
+  transition: ease-in all 0.5s;
+  color: #fff;
+}
+.focuson {
+  text-align: center;
+}
+.viewbox {
+  margin: auto;
+  align-items: center;
+  width: 95%;
+  height: 450px;
+  background: black;
+  border-radius: 10px;
+  border-top: #eda911 solid 15px;
+}
+.inputbox {
+  margin: auto;
+  margin-top: 40px;
+  align-items: center;
+  width: 35%;
+  height: 140px;
+  background: black;
+  border-radius: 10px;
+  border-top: #eda911 solid 15px;
+}
+
+.input_area {
+  background-color: black;
+  width: 80%;
+  height: 35px;
+
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  border-bottom: solid;
+  border-color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
