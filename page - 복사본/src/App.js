@@ -1,12 +1,48 @@
 import "./App.css";
-import { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import Viewbox from "./viewbox";
 
 const App = () => {
   const contentRef = useRef();
+  const numRef = useRef();
 
+  const [hate, setHate] = useState({
+    // hate_sentence: "",
+  });
+
+  // const onChange = (e) => {
+  //   setHate({
+  //     ...hate,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
+
+  // useEffect(() => {
+  //   // setTimeout(() => {
+  //   axios
+  //     .post("http://localhost:8008/import", {})
+
+  //     .then((res) => {
+  //       const { data } = res;
+  //       if (res.data.Length > 0) {
+  //         setHate({
+  //           ...hate,
+  //           hate_sentence: data.hate_sentence,
+  //         });
+  //       }
+  //       // setHate(res.data);
+  //       console.log(data);
+  //       setHate(data);
+  //     })
+  //     .catch((e) => {
+  //       console.error(e);
+  //     });
+  // }, [hate]);
+  // // }, 4000);
+
+  const [inputData, setInputData] = useState("");
   const handleInsert = () => {
-    // e.preventDefault();
     if (
       contentRef.current.value === "" ||
       contentRef.current.value === undefined
@@ -17,6 +53,8 @@ const App = () => {
     } else {
       alert("욕해주셔서 감사합니다!!");
     }
+
+    // console.log(this.state.hate_sentence);
 
     axios
       .post("http://localhost:8008/insert", {
@@ -29,14 +67,14 @@ const App = () => {
       .catch((e) => {
         console.error(e);
       });
-    console.log(contentRef.current.value);
+    setInputData(contentRef.current.value);
   };
 
   return (
     <div>
       <div class="text-bg">욕 감사합니다</div>
       <div class="focuson">
-        <div className="viewbox"></div>
+        <Viewbox input={inputData} />
         <div className="inputbox">
           <input
             ref={contentRef}
@@ -55,4 +93,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default React.memo(App);

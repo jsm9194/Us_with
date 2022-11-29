@@ -40,20 +40,18 @@ db.connect();
 app.post("/insert", (req, res) => {
   var content = req.body.content;
 
-  const sqlQuery = "insert into hate_speech values (?);";
+  const sqlQuery = "insert into hate_speech(hate_sentence) values (?);";
   db.query(sqlQuery, [content], (err, result) => {
     res.send(result);
   });
 });
 
-app.post("/detail", (req, res) => {
-  // 브라우저에 뿌려줄
-  console.log("/detail", req.body);
-  var num = parseInt(req.body.num);
+app.post("/import", (req, res) => {
+  var hate_num = req.body.hate_num;
+  var hate_sentence = req.body.hate_sentence;
 
-  const sqlQuery = // 보드이미지를 서버에서 가져올 수 있도록 쿼리구문에 보드이미지를 추가한다.
-    "SELECT BOARD_NUM, BOARD_WRITER, BOARD_TITLE, BOARD_CONTENT, DATE_FORMAT(BOARD_DATE, '%Y-%m-%d') AS BOARD_DATE, BOARD_IMAGE FROM BOARD_TBL where BOARD_NUM = ?;";
-  db.query(sqlQuery, [num], (err, result) => {
+  const sqlQuery = "select * from hate_speech order by hate_num desc limit 10"; // 보드이미지를 서버에서 가져올 수 있도록 쿼리구문에 보드이미지를 추가한다.
+  db.query(sqlQuery, [hate_sentence, hate_num], (err, result) => {
     res.send(result);
   });
 });

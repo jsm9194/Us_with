@@ -104,7 +104,7 @@
     padding-top: 6px;
   }
   .navigation.navbar-dark .navbar-toggler-icon {
-    background: url(../images/menu_icon.png);
+    background: url(".public\dog.png");
     background-repeat: no-repeat;
   }
   .carousel-control-next-icon,
@@ -120,11 +120,7 @@
   .header {
     padding: 30px 0px 15px 0px;
   }
-  .logo {
-    text-align: center !important;
-    padding-bottom: 6px;
-    float: left;
-  }
+
   .text-bg h1 {
     font-size: 50px;
     line-height: 70px;
